@@ -39,7 +39,10 @@
         var box = document.getElementById("messageBox");
         box.style.visibility="hidden";
     }
-
+    var url = new URL(window.location.href);
+    var params = new URLSearchParams(url.search);
+    var tgShareScoreUrl = params.get("tgShareScoreUrl");
+    console.log(tgShareScoreUrl)
 };
 </script>
     
