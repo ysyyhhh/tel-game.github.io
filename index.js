@@ -4,28 +4,9 @@
 // extract from chromium source code by @liuwayong
 (function () {
     'use strict';
-          // Telegram apps will implement this logic to add service params (e.g. tgShareScoreUrl) to game URL
-    function urlAppendHashParams(url, addHash) {
-        // url looks like 'https://game.com/path?query=1#hash'
-        // addHash looks like 'tgShareScoreUrl=' + encodeURIComponent('tgb://share_game_score?hash=very_long_hash123')
-        console.log(url, addHash)
-        var ind = url.indexOf('#');
-        if (ind < 0) {
-        // https://game.com/path -> https://game.com/path#tgShareScoreUrl=etc
-        return url + '#' + addHash;
-        }
-        var curHash = url.substr(ind + 1);
-        if (curHash.indexOf('=') >= 0 || curHash.indexOf('?') >= 0) {
-        // https://game.com/#hash=1 -> https://game.com/#hash=1&tgShareScoreUrl=etc
-        // https://game.com/#path?query -> https://game.com/#path?query&tgShareScoreUrl=etc
-        return url + '&' + addHash;
-        }
-        // https://game.com/#hash -> https://game.com/#hash?tgShareScoreUrl=etc
-        if (curHash.length > 0) {
-        return url + '?' + addHash;
-        }
-        // https://game.com/# -> https://game.com/#tgShareScoreUrl=etc
-        return url + addHash;
+    function botReady(tgShareScoreUrl) {
+        console.log(tgShareScoreUrl);
+        
     }
     /**
      * T-Rex runner.
