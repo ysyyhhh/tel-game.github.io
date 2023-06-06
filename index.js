@@ -2,12 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 // extract from chromium source code by @liuwayong
+
 (function () {
     'use strict';
     function botReady(tgShareScoreUrl) {
         console.log(tgShareScoreUrl);
         
     }
+
     /**
      * T-Rex runner.
      * @param {string} outerContainerId Outer containing element id.
@@ -458,8 +460,11 @@
 
                 // Game over panel.
                 if (this.crashed && this.gameOverPanel) {
+                    bot.set_score(Math.ceil(this.distanceRan));
                     this.gameOverPanel.updateDimensions(this.dimensions.WIDTH);
                     this.gameOverPanel.draw();
+                    
+                    // window.bot.share_score();
                 }
             }
         },
@@ -2745,7 +2750,8 @@
             this.clouds.push(new Cloud(this.canvas, this.spritePos.CLOUD,
                 this.dimensions.WIDTH));
         }
-    };
+    }; 
+
 })();
 
 
